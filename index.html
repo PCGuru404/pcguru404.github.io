@@ -17,7 +17,6 @@
             color: #00ff99;
             font-family: 'Arial', sans-serif;
         }
-        /* --- MENÜ --- */
         nav {
             position: fixed;
             top: 0;
@@ -40,7 +39,6 @@
         nav a:hover {
             color: #00ff99;
         }
-        /* --- SZEKCIÓK --- */
         section {
             height: 100vh;
             display: flex;
@@ -66,26 +64,81 @@
             font-size: 1.5em;
             max-width: 800px;
         }
-        /* --- LÁBLÉC --- */
         footer {
             text-align: center;
             padding: 10px;
             background: #000;
             color: #555;
-            position: relative;
+        }
+
+        /* --- Visszajelzés gomb --- */
+        #feedback-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00ccff;
+            color: #0d0d0d;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00ccff;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        #feedback-btn:hover {
+            background: #00ff99;
+            box-shadow: 0 0 25px #00ff99;
+        }
+
+        /* --- Felugró ablak --- */
+        #feedback-popup {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ccff;
+            display: none;
+            width: 300px;
+            z-index: 101;
+        }
+        #feedback-popup textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: none;
+            resize: none;
+        }
+        #feedback-popup button {
+            background: #00ccff;
+            color: #0d0d0d;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #feedback-popup button:hover {
+            background: #00ff99;
         }
     </style>
 </head>
 <body>
 
-    <!-- 🔥 NAVIGÁCIÓS MENÜ -->
+    <!-- Navigáció -->
     <nav>
         <a href="#home">Kezdőlap</a>
         <a href="#projects">Projektek</a>
         <a href="#contact">Kapcsolat</a>
     </nav>
 
-    <!-- 🔥 KEZDŐLAP -->
+    <!-- Kezdőlap -->
     <section id="home">
         <div>
             <h1>Üdv a PCGuru404 oldalán!</h1>
@@ -93,7 +146,7 @@
         </div>
     </section>
 
-    <!-- 🔥 PROJEKTEK -->
+    <!-- Projektek -->
     <section id="projects">
         <div>
             <h1>🔨 Projektek</h1>
@@ -101,7 +154,7 @@
         </div>
     </section>
 
-    <!-- 🔥 KAPCSOLAT -->
+    <!-- Kapcsolat -->
     <section id="contact">
         <div>
             <h1>📬 Kapcsolat</h1>
@@ -109,12 +162,45 @@
         </div>
     </section>
 
-    <!-- 🔥 LÁBLÉC AUTOMATIKUS DÁTUMMAL -->
+    <!-- LÁBLÉC -->
     <footer>&copy; <span id="year"></span> PCGuru404. Minden jog fenntartva.</footer>
 
-    <!-- 🔥 SCRIPT az automatikus dátumhoz -->
+    <!-- Visszajelzés gomb -->
+    <button id="feedback-btn">💬 Visszajelzés küldése</button>
+
+    <!-- Visszajelzés ablak -->
+    <div id="feedback-popup">
+        <textarea placeholder="Írd ide a javaslatod..."></textarea>
+        <button onclick="sendFeedback()">Küldés</button>
+    </div>
+
+    <!-- SCRIPT -->
     <script>
+        // Automatikus dátum
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Visszajelzés ablak logika
+        const feedbackBtn = document.getElementById('feedback-btn');
+        const feedbackPopup = document.getElementById('feedback-popup');
+        let isOpen = false;
+
+        feedbackBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            feedbackPopup.style.display = isOpen ? 'block' : 'none';
+        });
+
+        // Küldés funkció (később összeköthető backenddel)
+        function sendFeedback() {
+            const message = feedbackPopup.querySelector('textarea').value;
+            if (message.trim() !== '') {
+                alert('Köszönjük a visszajelzést!');
+                feedbackPopup.querySelector('textarea').value = ''; // törlés
+                feedbackPopup.style.display = 'none'; // bezárás
+                isOpen = false;
+            } else {
+                alert('Kérlek írj valamit!');
+            }
+        }
     </script>
 
 </body>
