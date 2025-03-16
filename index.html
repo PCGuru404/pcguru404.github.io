@@ -109,7 +109,13 @@
         </div>
     </section>
 
-    <footer>&copy; 2024 PCGuru404. Minden jog fenntartva.</footer>
+    <!-- 🔥 LÁBLÉC AUTOMATIKUS DÁTUMMAL -->
+    <footer>&copy; <span id="year"></span> PCGuru404. Minden jog fenntartva.</footer>
+
+    <!-- 🔥 SCRIPT az automatikus dátumhoz -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
