@@ -16,114 +16,100 @@
             background: #0d0d0d;
             color: #00ff99;
             font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
         }
-        /* Menü */
+        /* --- MENÜ --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 15px 0;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 100;
+            backdrop-filter: blur(5px);
+            padding: 15px 0;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            z-index: 100;
         }
         nav a {
             color: #00ccff;
             text-decoration: none;
             font-size: 1.2em;
             padding: 10px 20px;
+            margin: 0 15px;
             transition: 0.3s;
         }
         nav a:hover {
-            background: #00ccff;
-            color: #0d0d0d;
-            border-radius: 10px;
+            color: #00ff99;
         }
-        /* Szkeckók */
+        /* --- SZEKCIÓK --- */
         section {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             text-align: center;
-            padding: 60px 20px;
-            position: relative;
+            padding: 20px;
+        }
+        #home {
+            background: linear-gradient(45deg, #0d0d0d, #002233);
+        }
+        #projects {
+            background: linear-gradient(45deg, #002233, #003366);
+        }
+        #contact {
+            background: linear-gradient(45deg, #003366, #0d0d0d);
         }
         h1 {
             font-size: 3.5em;
             text-shadow: 0 0 20px #00ff99;
-            margin-bottom: 20px;
         }
         p {
             font-size: 1.5em;
-            margin-bottom: 30px;
             max-width: 800px;
         }
-        /* Gomb */
-        .btn {
-            display: inline-block;
-            color: #00ccff;
-            text-decoration: none;
-            padding: 15px 30px;
-            border: 2px solid #00ccff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #00ccff;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-        .btn:hover {
-            background: #00ccff;
-            color: #0d0d0d;
-            transform: scale(1.1);
-        }
-        /* Háttér csíkok */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .line {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background: rgba(0, 255, 153, 0.1);
-            animation: move 5s linear infinite;
-        }
-        @keyframes move {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
+        /* --- LÁBLÉC --- */
         footer {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            color: #555;
-            font-size: 0.9em;
             text-align: center;
+            padding: 10px;
+            background: #000;
+            color: #555;
+            position: relative;
         }
     </style>
 </head>
 <body>
 
-    <!-- Menü -->
+    <!-- 🔥 NAVIGÁCIÓS MENÜ -->
     <nav>
         <a href="#home">Kezdőlap</a>
-        <a href="#about">Bemutatkozás</a>
         <a href="#projects">Projektek</a>
         <a href="#contact">Kapcsolat</a>
     </nav>
 
-    <!-- Kezdőlap -->
+    <!-- 🔥 KEZDŐLAP -->
     <section id="home">
-        <div class="background" id="background"></div>
-        <h1>Üdv, PCGuru404 vagyok!</h1>
-        <p>Fedezd fel a YouTube és TikTok csatornámat, valamint a projektjeimet!</p>
-        <a href="https://youtube.com/@PCGuru404" target="_blank" class="btn"><i class="fab fa-youtube"></i> YouTube</a>
-        <a href="https://www.tiktok.com/@pcguru404.official" target="_blank" class="btn"><i class="fab fa-tiktok"></i> TikTok</
+        <div>
+            <h1>Üdv a PCGuru404 oldalán!</h1>
+            <p>Fedezd fel a projektjeimet és lépj kapcsolatba velem!</p>
+        </div>
+    </section>
+
+    <!-- 🔥 PROJEKTEK -->
+    <section id="projects">
+        <div>
+            <h1>🔨 Projektek</h1>
+            <p>Itt találod az összes eddigi munkámat, beleértve a játékokat és a weboldalakat!</p>
+        </div>
+    </section>
+
+    <!-- 🔥 KAPCSOLAT -->
+    <section id="contact">
+        <div>
+            <h1>📬 Kapcsolat</h1>
+            <p>Ha szeretnéd felvenni velem a kapcsolatot, írj üzenetet vagy nézd meg a közösségi oldalaimat!</p>
+        </div>
+    </section>
+
+    <footer>&copy; 2024 PCGuru404. Minden jog fenntartva.</footer>
+
+</body>
+</html>
