@@ -10,66 +10,85 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
         body {
             background: #0d0d0d;
             color: #00ff99;
             font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
+        }
+        /* Menü */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        nav a {
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #00ccff;
+            color: #0d0d0d;
+            border-radius: 10px;
+        }
+        /* Szkeckók */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 20px;
             position: relative;
         }
         h1 {
-            font-size: 4em;
+            font-size: 3.5em;
             text-shadow: 0 0 20px #00ff99;
             margin-bottom: 20px;
         }
         p {
             font-size: 1.5em;
             margin-bottom: 30px;
+            max-width: 800px;
         }
-        a {
+        /* Gomb */
+        .btn {
             display: inline-block;
             color: #00ccff;
             text-decoration: none;
-            font-size: 1.2em;
             padding: 15px 30px;
-            margin: 10px;
             border: 2px solid #00ccff;
             border-radius: 10px;
-            transition: all 0.3s ease;
             box-shadow: 0 0 15px #00ccff;
-            position: relative;
-            z-index: 2;
+            transition: all 0.3s ease;
+            margin: 10px;
         }
-        a i {
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-        a:hover {
-            background-color: #00ccff;
+        .btn:hover {
+            background: #00ccff;
             color: #0d0d0d;
-            box-shadow: 0 0 25px #00ccff;
             transform: scale(1.1);
         }
-        footer {
-            position: absolute;
-            bottom: 10px;
-            color: #555;
-            font-size: 0.9em;
-            z-index: 2;
-            width: 100%;
-            text-align: center;
-        }
-        /* Háttér animáció */
+        /* Háttér csíkok */
         .background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
             overflow: hidden;
-            z-index: 1;
         }
         .line {
             position: absolute;
@@ -82,44 +101,29 @@
             0% { transform: translateY(-100%); }
             100% { transform: translateY(100%); }
         }
-        /* Tartalom középre */
-        .content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+        footer {
             padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #555;
+            font-size: 0.9em;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="background" id="background"></div> <!-- Háttér -->
-    
-    <div class="content">
-        <h1>Üdv, kedves néző! Nézelődj az infók között!</h1>
-        <p>Kattints a gombra, és nézd meg a YouTube, vagy TikTok csatornámat!</p>
-        <a href="https://youtube.com/@PCGuru404" target="_blank"><i class="fab fa-youtube"></i> YouTube Csatornám</a>
-        <a href="https://www.tiktok.com/@pcguru404.official" target="_blank"><i class="fab fa-tiktok"></i> TikTok Csatornám</a>
-    </div>
+    <!-- Menü -->
+    <nav>
+        <a href="#home">Kezdőlap</a>
+        <a href="#about">Bemutatkozás</a>
+        <a href="#projects">Projektek</a>
+        <a href="#contact">Kapcsolat</a>
+    </nav>
 
-    <footer>&copy; 2024 PCGuru404. Minden jog fenntartva.</footer>
-
-    <script>
-        // Dinamikus háttér csíkok
-        const background = document.getElementById('background');
-        for (let i = 0; i < 30; i++) { // 30 csík
-            const line = document.createElement('div');
-            line.classList.add('line');
-            line.style.left = Math.random() * 100 + 'vw';
-            line.style.animationDuration = (Math.random() * 3 + 3) + 's'; // 3-6 sec animáció
-            background.appendChild(line);
-        }
-    </script>
-
-</body>
-</html>
+    <!-- Kezdőlap -->
+    <section id="home">
+        <div class="background" id="background"></div>
+        <h1>Üdv, PCGuru404 vagyok!</h1>
+        <p>Fedezd fel a YouTube és TikTok csatornámat, valamint a projektjeimet!</p>
+        <a href="https://youtube.com/@PCGuru404" target="_blank" class="btn"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.tiktok.com/@pcguru404.official" target="_blank" class="btn"><i class="fab fa-tiktok"></i> TikTok</
