@@ -9,14 +9,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
-}
-
-h1, h2 {
-    font-size: 4em;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px #00ff99;
+    overflow: hidden;
 }
 
 /* Navigációs sáv */
@@ -61,58 +56,50 @@ nav ul li a:hover {
     border-radius: 10px;
     transition: all 0.3s ease;
     margin: 10px;
-}
-
-.youtube { background-color: #FF0000; box-shadow: 0 0 15px #FF0000; }
-.youtube:hover { background-color: #CC0000; box-shadow: 0 0 25px #CC0000; }
-
-.tiktok { background-color: #000000; box-shadow: 0 0 15px #00F2EA; }
-.tiktok:hover { background-color: #111111; box-shadow: 0 0 25px #00F2EA; }
-
-.discord { background-color: #5865F2; box-shadow: 0 0 15px #5865F2; }
-.discord:hover { background-color: #4752C4; box-shadow: 0 0 25px #4752C4; }
-
-/* Form és egyéb elemek */
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin-top: 20px;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: none;
-}
-
-button {
-    padding: 10px;
-    font-size: 1.2em;
-    color: white;
     background-color: #00ccff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 0 15px #00ccff;
 }
 
-button:hover {
-    background-color: #0099cc;
+.button:hover {
+    background-color: #00ff99;
+    box-shadow: 0 0 25px #00ff99;
+}
+
+/* Mátrix effekt háttér */
+body {
+    position: relative;
+    background-color: black;
+}
+
+.matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
 }
 
 /* Projektek szekció */
-#projektek {
-    padding: 50px 0;
-    background-color: #111;
-    color: #fff;
-    width: 100%;
+h1, h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #00ff99;
 }
 
 footer {
     margin-top: 20px;
     color: #555;
     font-size: 0.9em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.5em;
+    margin: 10px 0;
 }
