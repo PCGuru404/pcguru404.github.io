@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;
+    background-color: #0d0d0d;  /* Egyszínű háttér, nincs animáció */
     color: #00ff99;
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -12,8 +12,6 @@ body {
     height: 100vh;
     text-align: center;
     overflow: hidden;
-    position: relative;
-    animation: matrix 60s ease infinite; /* Háttér lassítása */
 }
 
 /* Gombok */
@@ -24,22 +22,16 @@ body {
     padding: 15px 30px;
     border: 2px solid #00ccff;
     border-radius: 10px;
-    transition: all 0.5s ease; /* Lassabb átmenet */
+    transition: all 0.5s ease;
     box-shadow: 0 0 15px #00ccff;
     margin: 10px;
     background: linear-gradient(135deg, #00ff99 25%, #00ccff 50%, #00ff99 75%);
     background-size: 400% 400%;
-    animation: button-background 10s ease infinite; /* Lassabb animáció */
+    animation: button-background 10s ease infinite; /* Lassabb gomb háttér animáció */
 }
 
 /* Gomb háttér animáció */
 @keyframes button-background {
-    0% { background-position: 100% 100%; }
-    100% { background-position: 0 0; }
-}
-
-/* Háttér animáció */
-@keyframes matrix {
     0% { background-position: 100% 100%; }
     100% { background-position: 0 0; }
 }
