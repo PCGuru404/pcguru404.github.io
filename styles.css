@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;  /* Egyszínű háttér, nincs animáció */
+    background-color: #0d0d0d;
     color: #00ff99;
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-/* Gombok */
+/* Gombok közös stílusa */
 .button {
     color: #fff;
     text-decoration: none;
@@ -30,6 +30,22 @@ body {
     animation: button-background 10s ease infinite; /* Lassabb gomb háttér animáció */
 }
 
+/* Projektek gomb külön stílus */
+.button-projects {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: 2px solid #ff5733;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 15px #ff5733;
+    margin: 10px;
+    background: linear-gradient(135deg, #ff5733 25%, #ff9966 50%, #ff5733 75%);
+    background-size: 400% 400%;
+    animation: button-background 10s ease infinite; /* Lassabb animáció */
+}
+
 /* Gomb háttér animáció */
 @keyframes button-background {
     0% { background-position: 100% 100%; }
@@ -41,6 +57,12 @@ body {
     background-color: #00ccff;
     color: #0d0d0d;
     box-shadow: 0 0 25px #00ccff;
+}
+
+.button-projects:hover {
+    background-color: #ff9966;
+    color: #0d0d0d;
+    box-shadow: 0 0 25px #ff5733;
 }
 
 h1 {
