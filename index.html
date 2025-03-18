@@ -4,204 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCGuru404 Weboldala</title>
-    <script src="https://kit.fontawesome.com/a2e0e6e6c1.js" crossorigin="anonymous"></script>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        body {
-            background: #0d0d0d;
+            background-color: #0d0d0d;
             color: #00ff99;
             font-family: 'Arial', sans-serif;
-        }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 15px 0;
             display: flex;
-            justify-content: center;
-            z-index: 100;
-        }
-        nav a {
-            color: #00ccff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #00ff99;
-        }
-        section {
-            height: 100vh;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 100vh;
             text-align: center;
-            padding: 20px;
-        }
-        #home {
-            background: linear-gradient(45deg, #0d0d0d, #002233);
-        }
-        #projects {
-            background: linear-gradient(45deg, #002233, #003366);
-        }
-        #contact {
-            background: linear-gradient(45deg, #003366, #0d0d0d);
         }
         h1 {
-            font-size: 3.5em;
+            font-size: 4em;
+            margin-bottom: 20px;
             text-shadow: 0 0 20px #00ff99;
         }
         p {
             font-size: 1.5em;
-            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        a, button {
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: 2px solid #00ccff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px #00ccff;
+            background: transparent;
+            cursor: pointer;
+            margin: 10px;
+        }
+        a:hover, button:hover {
+            background-color: #00ccff;
+            color: #0d0d0d;
+            box-shadow: 0 0 25px #00ccff;
         }
         footer {
-            text-align: center;
-            padding: 10px;
-            background: #000;
+            position: absolute;
+            bottom: 10px;
             color: #555;
+            font-size: 0.9em;
         }
 
-        /* --- Visszajelzés gomb --- */
-        #feedback-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #00ccff;
-            color: #0d0d0d;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 30px;
-            font-size: 1em;
-            cursor: pointer;
-            box-shadow: 0 0 20px #00ccff;
-            transition: 0.3s;
-            z-index: 100;
-        }
-        #feedback-btn:hover {
-            background: #00ff99;
-            box-shadow: 0 0 25px #00ff99;
-        }
-
-        /* --- Felugró ablak --- */
+        /* Visszajelzés popup */
         #feedback-popup {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: #1a1a1a;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #222;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px #00ccff;
-            display: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+            text-align: center;
             width: 300px;
-            z-index: 101;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        #feedback-popup h2 {
+            color: #00ff99;
+            margin-bottom: 15px;
         }
         #feedback-popup textarea {
             width: 100%;
             height: 100px;
+            background: #111;
+            color: #fff;
+            border: 1px solid #00ff99;
+            border-radius: 5px;
             padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            border: none;
             resize: none;
         }
         #feedback-popup button {
-            background: #00ccff;
-            color: #0d0d0d;
-            padding: 10px 15px;
+            margin-top: 10px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 10px;
-            width: 100%;
+            border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s;
         }
-        #feedback-popup button:hover {
+        #feedback-popup button[type="submit"] {
             background: #00ff99;
+            color: #111;
+            font-weight: bold;
+        }
+        #feedback-popup button[type="button"] {
+            background: #ff3333;
+            color: #fff;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
+    <h1>Üdv, kedves néző! Nézelődj az infók között!</h1>
+    <p>Kattints a gombra, és nézd meg a YouTube, vagy TikTok csatornámat!</p>
+    <a href="https://youtube.com/@PCGuru404" target="_blank">YouTube Csatornám</a>
+    <a href="https://www.tiktok.com/@pcguru404.official" target="_blank">TikTok csatornám</a>
+    <br>
+    <button onclick="openFeedback()">Visszajelzés küldése</button>
 
-    <!-- Navigáció -->
-    <nav>
-        <a href="#home">Kezdőlap</a>
-        <a href="#projects">Projektek</a>
-        <a href="#contact">Kapcsolat</a>
-    </nav>
-
-    <!-- Kezdőlap -->
-    <section id="home">
-        <div>
-            <h1>Üdv a PCGuru404 oldalán!</h1>
-            <p>Fedezd fel a projektjeimet és lépj kapcsolatba velem!</p>
-        </div>
-    </section>
-
-    <!-- Projektek -->
-    <section id="projects">
-        <div>
-            <h1>🔨 Projektek</h1>
-            <p>Itt találod az összes eddigi munkámat, beleértve a játékokat és a weboldalakat!</p>
-        </div>
-    </section>
-
-    <!-- Kapcsolat -->
-    <section id="contact">
-        <div>
-            <h1>📬 Kapcsolat</h1>
-            <p>Ha szeretnéd felvenni velem a kapcsolatot, írj üzenetet vagy nézd meg a közösségi oldalaimat!</p>
-        </div>
-    </section>
-
-    <!-- LÁBLÉC -->
-    <footer>&copy; <span id="year"></span> PCGuru404. Minden jog fenntartva.</footer>
-
-    <!-- Visszajelzés gomb -->
-    <button id="feedback-btn">💬 Visszajelzés küldése</button>
-
-    <!-- Visszajelzés ablak -->
+    <!-- Visszajelzés popup -->
     <div id="feedback-popup">
-        <textarea placeholder="Írd ide a javaslatod..."></textarea>
-        <button onclick="sendFeedback()">Küldés</button>
+        <h2>Írd meg a javaslatod!</h2>
+        <form action="https://formsubmit.co/IDE-JÖN-A-FORMSUBMIT-EMAIL" method="POST">
+            <textarea name="message" placeholder="Írd ide a visszajelzésed..." required></textarea>
+            <input type="hidden" name="_autoresponse" value="Köszönjük! Megkaptuk az üzeneted.">
+            <br>
+            <button type="submit">Küldés</button>
+            <button type="button" onclick="closeFeedback()">Mégse</button>
+        </form>
     </div>
 
-    <!-- SCRIPT -->
+    <footer>&copy; 2025 PCGuru404. Minden jog fenntartva.</footer>
+
     <script>
-        // Automatikus dátum
-        document.getElementById("year").textContent = new Date().getFullYear();
+        function openFeedback() {
+            document.getElementById("feedback-popup").style.display = "flex";
+        }
 
-        // Visszajelzés ablak logika
-        const feedbackBtn = document.getElementById('feedback-btn');
-        const feedbackPopup = document.getElementById('feedback-popup');
-        let isOpen = false;
-
-        feedbackBtn.addEventListener('click', () => {
-            isOpen = !isOpen;
-            feedbackPopup.style.display = isOpen ? 'block' : 'none';
-        });
-
-        // Küldés funkció (később összeköthető backenddel)
-        function sendFeedback() {
-            const message = feedbackPopup.querySelector('textarea').value;
-            if (message.trim() !== '') {
-                alert('Köszönjük a visszajelzést!');
-                feedbackPopup.querySelector('textarea').value = ''; // törlés
-                feedbackPopup.style.display = 'none'; // bezárás
-                isOpen = false;
-            } else {
-                alert('Kérlek írj valamit!');
-            }
+        function closeFeedback() {
+            document.getElementById("feedback-popup").style.display = "none";
         }
     </script>
-
 </body>
 </html>
