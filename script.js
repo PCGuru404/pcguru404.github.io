@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Weboldal betöltve!");
-
-    // Animáció az űrlap megjelenítésére
-    const form = document.querySelector("form");
-    form.style.opacity = "0";
-    form.style.transform = "translateY(20px)";
+    const projektek = document.querySelector("#projektek");
+    projektek.style.opacity = "0";
+    projektek.style.transform = "translateY(20px)";
+    
     setTimeout(() => {
-        form.style.transition = "opacity 1s, transform 1s";
-        form.style.opacity = "1";
-        form.style.transform = "translateY(0)";
+        projektek.style.transition = "opacity 1s, transform 1s";
+        projektek.style.opacity = "1";
+        projektek.style.transform = "translateY(0)";
     }, 500);
 });
