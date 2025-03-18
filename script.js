@@ -1,41 +1,29 @@
-// Mátrix háttér létrehozása
-const matrix = document.createElement('div');
-matrix.className = 'matrix';
-document.body.appendChild(matrix);
+// Konfiguráljuk a mátrix karakterek paramétereit
+const numColumns = 100; // Oszlopok száma
+const numLines = 20;    // Sorok száma
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()'; // A megjeleníthető karakterek
 
-const chars = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-const columns = Math.floor(window.innerWidth / 20);
-const drops = [];
+// A mátrix háttér létrehozása
+const matrixBackground = document.createElement('div');
+matrixBackground.classList.add('matrix-background');
+document.body.appendChild(matrixBackground);
 
-// Inicializálás
-for (let i = 0; i < columns; i++) {
-    drops.push(0);
+// Véletlenszerű karakterek generálása és animálása
+for (let i = 0; i < numColumns; i++) {
+    const line = document.createElement('div');
+    line.classList.add('matrix-line');
+    matrixBackground.appendChild(line);
+    
+    // Véletlenszerű karakterek animációja
+    const speed = Math.random() * 2 + 1; // Véletlen sebesség
+    let content = '';
+    let lineIndex = i;
+
+    setInterval(() => {
+        content += characters.charAt(Math.floor(Math.random() * characters.length));
+        line.innerText = content;
+    }, 100);
+
+    line.style.animationDuration = `${speed}s`;
+    line.style.left = `${i * 20}px`; // Módosítható oszlopok közötti távolság
 }
-
-// Frissítési funkció
-function draw() {
-    matrix.innerHTML = '';
-    for (let i = 0; i < drops.length; i++) {
-        let char = chars[Math.floor(Math.random() * chars.length)];
-        let span = document.createElement('span');
-        span.style.position = 'absolute';
-        span.style.left = `${i * 20}px`;
-        span.style.top = `${drops[i] * 20}px`;
-        span.style.color = '#00ff99';
-        span.style.fontSize = '20px';
-        span.style.opacity = '0.75';
-        span.innerText = char;
-        matrix.appendChild(span);
-
-        // Drop mozgás
-        if (drops[i] * 20 > window.innerHeight) {
-            drops[i] = 0;
-        } else {
-            drops[i]++;
-        }
-    }
-
-    requestAnimationFrame(draw);
-}
-
-draw();
