@@ -13,37 +13,42 @@ body {
     text-align: center;
     overflow: hidden;
     position: relative;
+    animation: matrix 60s ease infinite; /* Háttér lassítása */
 }
 
 /* Gombok */
 .button {
-    color: #00ccff;
+    color: #fff;
     text-decoration: none;
     font-size: 1.5em;
     padding: 15px 30px;
     border: 2px solid #00ccff;
     border-radius: 10px;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease; /* Lassabb átmenet */
     box-shadow: 0 0 15px #00ccff;
     margin: 10px;
+    background: linear-gradient(135deg, #00ff99 25%, #00ccff 50%, #00ff99 75%);
+    background-size: 400% 400%;
+    animation: button-background 10s ease infinite; /* Lassabb animáció */
 }
 
-.button:hover {
-    background-color: #00ccff;
-    color: #0d0d0d;
-    box-shadow: 0 0 25px #00ccff;
+/* Gomb háttér animáció */
+@keyframes button-background {
+    0% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
 }
 
-/* Mátrix háttér effekt */
+/* Háttér animáció */
 @keyframes matrix {
     0% { background-position: 100% 100%; }
     100% { background-position: 0 0; }
 }
 
-body {
-    background: linear-gradient(135deg, #00ff99 25%, #00ccff 50%, #00ff99 75%);
-    background-size: 400% 400%;
-    animation: matrix 30s ease infinite; /* Lassított animáció */
+/* Gombok hover effekt */
+.button:hover {
+    background-color: #00ccff;
+    color: #0d0d0d;
+    box-shadow: 0 0 25px #00ccff;
 }
 
 h1 {
