@@ -4,154 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCGuru404 Weboldala</title>
-    <style>
-        .discord-button {
-    display: inline-block;
-    margin-top: 20px;
-    color: #ffffff;
-    background-color: #5865F2;
-    text-decoration: none;
-    font-size: 1.2em;
-    padding: 15px 30px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px #5865F2;
-}
-
-.discord-button:hover {
-    background-color: #4752C4;
-    box-shadow: 0 0 25px #4752C4;
-}
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0d0d0d;
-            color: #00ff99;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px #00ff99;
-        }
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
-        a, button {
-            color: #00ccff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 15px 30px;
-            border: 2px solid #00ccff;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px #00ccff;
-            background: transparent;
-            cursor: pointer;
-            margin: 10px;
-        }
-        a:hover, button:hover {
-            background-color: #00ccff;
-            color: #0d0d0d;
-            box-shadow: 0 0 25px #00ccff;
-        }
-        footer {
-            position: absolute;
-            bottom: 10px;
-            color: #555;
-            font-size: 0.9em;
-        }
-
-        /* Visszajelzés popup */
-        #feedback-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
-            text-align: center;
-            width: 300px;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-        }
-        #feedback-popup h2 {
-            color: #00ff99;
-            margin-bottom: 15px;
-        }
-        #feedback-popup textarea {
-            width: 100%;
-            height: 100px;
-            background: #111;
-            color: #fff;
-            border: 1px solid #00ff99;
-            border-radius: 5px;
-            padding: 10px;
-            resize: none;
-        }
-        #feedback-popup button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #feedback-popup button[type="submit"] {
-            background: #00ff99;
-            color: #111;
-            font-weight: bold;
-        }
-        #feedback-popup button[type="button"] {
-            background: #ff3333;
-            color: #fff;
-            margin-left: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS fájl betöltése -->
 </head>
 <body>
     <h1>Üdv, kedves néző! Nézelődj az infók között!</h1>
-    <p>Kattints a gombra, és nézd meg a YouTube, vagy TikTok csatornámat!</p>
-    <a href="https://youtube.com/@PCGuru404" target="_blank">YouTube Csatornám</a>
-    <a href="https://www.tiktok.com/@pcguru404.official" target="_blank">TikTok csatornám</a>
-    <a href="https://discord.gg/IDE-JÖN-A-MEGHÍVÓ-LINKED" target="_blank" class="discord-button">
-    Csatlakozz a Discord szerveremhez!
-</a>
-    <br>
-    <button onclick="openFeedback()">Visszajelzés küldése</button>
+    <p>Kattints egy gombra, és nézd meg a csatornáimat!</p>
 
-    <!-- Visszajelzés popup -->
-    <div id="feedback-popup">
-        <h2>Írd meg a javaslatod!</h2>
-        <form action="https://formsubmit.co/pcguru404.official@gmail.com" method="POST">
-            <textarea name="message" placeholder="Írd ide a visszajelzésed..." required></textarea>
-            <input type="hidden" name="_autoresponse" value="Köszönjük! Megkaptuk az üzeneted.">
-            <br>
-            <button type="submit">Küldés</button>
-            <button type="button" onclick="closeFeedback()">Mégse</button>
-        </form>
-    </div>
+    <a href="https://youtube.com/@PCGuru404" target="_blank" class="button youtube">YouTube Csatornám</a>
+    <a href="https://www.tiktok.com/@pcguru404.official" target="_blank" class="button tiktok">TikTok csatornám</a>
+    <a href="https://discord.gg/IDE-JÖN-A-MEGHÍVÓ-LINKED" target="_blank" class="button discord">Csatlakozz a Discord szerveremhez!</a>
+
+    <h2>Írj visszajelzést!</h2>
+    <form action="https://formsubmit.co/teemailcimed@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Neved" required>
+        <input type="email" name="email" placeholder="Email címed" required>
+        <textarea name="message" placeholder="Írd ide az üzeneted..." required></textarea>
+        <button type="submit">Küldés</button>
+    </form>
 
     <footer>&copy; 2025 PCGuru404. Minden jog fenntartva.</footer>
 
-    <script>
-        function openFeedback() {
-            document.getElementById("feedback-popup").style.display = "flex";
-        }
-
-        function closeFeedback() {
-            document.getElementById("feedback-popup").style.display = "none";
-        }
-    </script>
+    <script src="script.js"></script> <!-- JavaScript fájl betöltése -->
 </body>
 </html>
