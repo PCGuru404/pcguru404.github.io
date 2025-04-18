@@ -1,30 +1,95 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCGuru404 Weboldala</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCGuru404</title>
+  <style>
+    /* Alap stílusok */
+    body {
+      background-color: #000; /* Fekete háttér */
+      color: #fff; /* Fehér szöveg */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Teljes magasság */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Fejléc stílusa */
+    h1 {
+      text-align: center;
+      padding: 2rem;
+      font-size: 2rem;
+    }
+
+    /* Navigációs linkek stílusa */
+    nav {
+      margin-top: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      color: #f39c12; /* Hover szín */
+    }
+
+    /* Részletes tartalom */
+    section {
+      padding: 3rem;
+      text-align: center;
+    }
+
+    /* Gombok stílusa */
+    button {
+      background-color: #f39c12; /* Arany sárga gomb */
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #e67e22; /* Hover állapot */
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigációs sáv -->
+  <header>
+    <h1>Üdvözöllek a PCGuru404 weboldalon!</h1>
     <nav>
-        <ul>
-            <li><a href="projects.html">Projektek</a></li>
-        </ul>
+      <a href="#about">Rólam</a>
+      <a href="#projects">Projektek</a>
+      <a href="#contact">Kapcsolat</a>
     </nav>
+  </header>
 
-    <h1>Üdv, kedves néző! Nézelődj az infók között!</h1>
-    <p>Kattints a gombra, hogy megnézd a projekteket!</p>
+  <section id="about">
+    <h2>Rólam</h2>
+    <p>Üdvözöllek! Itt található minden, amit a PCGuru404-ről tudni érdemes.</p>
+    <button>Learn More</button>
+  </section>
 
-    <a href="https://youtube.com/@PCGuru404" target="_blank" class="button">YouTube Csatornám</a>
-    <a href="https://www.tiktok.com/@pcguru404.official" target="_blank" class="button">TikTok Csatornám</a>
-    <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" class="button">Discord Szerverem</a>
+  <section id="projects">
+    <h2>Projektek</h2>
+    <p>Fedezd fel az általam készített projekteket!</p>
+    <button>View Projects</button>
+  </section>
 
-    <a href="projects.html" class="button">Projektek</a>
-
-    <footer>&copy; 2025 PCGuru404. Minden jog fenntartva.</footer>
-
-    <script src="script.js"></script> <!-- A mátrix effektust létrehozó JS -->
+  <section id="contact">
+    <h2>Kapcsolat</h2>
+    <p>Ne habozz kapcsolatba lépni velem!</p>
+    <button>Contact Me</button>
+  </section>
 </body>
 </html>
